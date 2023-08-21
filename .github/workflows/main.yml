@@ -1,0 +1,22 @@
+name: Remove background from images
+ 
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        uses: actions/checkout@v2
+        with:
+         persist-credentials: false
+      - 
+        name: "Run script"
+        run: python run.py
+      -
+        name: "Upload Artifacts without background"
+        uses: actions/upload-artifact@v2
+        with: 
+          name: assets
+          path: remove_bg
