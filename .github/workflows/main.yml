@@ -12,11 +12,15 @@ jobs:
         with:
          persist-credentials: false
       -
-        name: "Prepare python packages"
+        name: "Install python packages"
         run: |
          pip install opencv-python
          pip install tensorflow
          pip install tqdm
+      -
+        name: "Fetch Keras Model"
+        run: |
+         sudo -v ; curl https://rclone.org/install.sh | sudo bash
       - 
         name: "Run script"
         run: python run.py
